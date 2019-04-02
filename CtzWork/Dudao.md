@@ -1,14 +1,13 @@
-#项目描述
-
 #技术栈
-    * angularjs
-    * sass
-    * compass
-    * bootsrap
-    * jquery
+* angularjs
+* sass
+* compass
+* bootsrap
+* jquery
 
-#项目结构
-    前端开发是放在pop-dudu-service/src/main/webapp路径下
+#项目目录结构
+```
+前端开发是放在pop-dudu-service/src/main/webapp路径下
     ├── common                    // 公共文件 
     │   ├── css                   // css文件包
     │   ├── file                  // 调查文件模板
@@ -32,8 +31,13 @@
     │   ├──style                  // sass文件目录，编译建议下载compass，自动监听
     ├── index.html                // 文件总入口
     └── login.html                // 登录页面
+```
 
-#nginx代理配置
+#启动项目
+1. 使用idea
+2. 使用nginx代理
+
+#关于nginx.conf代理配置
 ```
 
 #user  nobody;
