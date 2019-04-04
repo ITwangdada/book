@@ -11,9 +11,8 @@
 
  #项目目录解构
 ```
-
-├── node_modules                   // npm加载的项目依赖模块
-├── public                         // 静态文件
+├── node_modules                   // npm加载的项目依赖模块
+├── public                         // 静态文件
 │   ├── index.html                 // 静态index.html文件
 │   ├── favicon                    // 浏览器icon
 │—— src                            // 放置组件和入口文件
@@ -30,7 +29,6 @@
 │—— vue.config.js                  // cli3配置文件 
 │—— babel.config.js                // babel配置文件
 │—— README.md                      // 说明文件 
-
 ```
 
 #run
