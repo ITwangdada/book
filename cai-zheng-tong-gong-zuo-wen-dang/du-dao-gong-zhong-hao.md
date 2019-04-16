@@ -1,6 +1,7 @@
 # 督导公众号
 
-##技术栈
+## 技术栈
+
 * vue
 * vuex
 * vue-router
@@ -9,8 +10,9 @@
 * vue-cli2
 * axios
 
-##项目目录结构
-```
+## 项目目录结构
+
+```text
 ├── node_modules                   // npm加载的项目依赖模块
 ├── public                         // 静态文件
 │   ├── index.html                 // 静态index.html文件
@@ -30,11 +32,11 @@
 │   ├── filters                    // 全局filter
 │   ├── polyfill.js                // 垫片
 │—— package.json                   // 项目及工具的依赖配置文件
-
 ```
 
-##run
-```
+## run
+
+```text
 git clone 仓库地址
 //公众号当中路由是后端重定向的，需要后端配合拼接。
 //代理配置需和url的location.host一样，
@@ -45,8 +47,9 @@ npm run dev
 //拿到用户的session就行，方法我是用的这个。
 ```
 
+## 打包
 
-##打包
-```
+```text
     npm run build
 ```
+

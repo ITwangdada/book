@@ -1,14 +1,16 @@
 # 督导助手
 
-##技术栈
+## 技术栈
+
 * angularjs
 * sass
 * compass
 * bootsrap
 * jquery
 
-##项目目录结构
-```
+## 项目目录结构
+
+```text
 前端开发是放在pop-dudu-service/src/main/webapp路径下
     ├── common                    // 公共文件 
     │   ├── css                   // css文件包
@@ -35,13 +37,14 @@
     └── login.html                // 登录页面
 ```
 
-##启动项目
+## 启动项目
+
 1. 使用idea
 2. 使用nginx代理
 
-##关于nginx.conf代理配置
-```
+## 关于nginx.conf代理配置
 
+```text
 #user  nobody;
 worker_processes  1;
 
@@ -130,7 +133,5 @@ http {
     }
 
 }
-
 ```
-    
 
