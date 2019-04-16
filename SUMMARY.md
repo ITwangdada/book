@@ -5,6 +5,6 @@
   * [督导助手](cai-zheng-tong-gong-zuo-wen-dang/du-dao-zhu-shou.md)
   * [董秘办官网](cai-zheng-tong-gong-zuo-wen-dang/dong-mi-ban-guan-wang.md)
   * [督导公众号](cai-zheng-tong-gong-zuo-wen-dang/du-dao-gong-zhong-hao.md)
-* [vue相关问题](readme-1.md)
+* [vue相关问题](vue.md)
 * [JavaScript基础](javascript-ji-chu.md)
 
