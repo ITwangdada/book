@@ -172,22 +172,20 @@
     * 当对象类型和原始类型做相等比较时，对象类型会依照ToPrimitive规则转换为原始类型。
 
 ## 类型判断
+typeof
+运算符后可跟着一个操作数，用于判断该操作数的数据类型；typeof适用于boolean,undefined,string,number,symbol。
+判断一个数据是不是对象，却不能判断它是对象的哪个“子类型”，比如说不能判断是否为数组，是否为日期等。
+typeof null  // object
+typeof function(){} // function
 
-    typeof
-    运算符后可跟着一个操作数，用于判断该操作数的数据类型；typeof适用于boolean,undefined,string,number,symbol。
-    判断一个数据是不是对象，却不能判断它是对象的哪个“子类型”，比如说不能判断是否为数组，是否为日期等。
-    typeof null  // object
-    typeof function(){} // function
+instanceof
+判断一个对象的“子类型”。判断一个对象在其原型链中是否存在一个构造函数的prototype属性。
 
-    instanceof
-    判断一个对象的“子类型”。判断一个对象在其原型链中是否存在一个构造函数的prototype属性。
+constructor
+constructor的值是对构造函数本身的引用，而不是函数名的字符串。constructor属性返回的对象的构造函数，基本类型指向对象的内置对象的构造函数。null和undefined没有构造函数。
 
-    constructor
-    constructor的值是对构造函数本身的引用，而不是函数名的字符串。constructor属性返回的对象的构造函数，基本类型指向对象的内置对象的构造函数。null和undefined没有构造函数。
-
-    Object.prototype.toString.call()
-    Object.prototype.toString.call(data)返回一个表示data的原型对象的字符串（如果data不是对象，会先转化为对象，null和undefined除外）
-
+Object.prototype.toString.call()
+Object.prototype.toString.call(data)返回一个表示data的原型对象的字符串（如果data不是对象，会先转化为对象，null和undefined除外）
 
 ##ajax / jsonp原理
 
@@ -233,10 +231,13 @@ post请求
 ```
 
 注释：
+
 1. open(method, url, async)
+```
     * method: 发送请求所使用的方法
     * url: 规定服务器端脚本的URL
     * async: 对请求进行异步(true)或同步(false)处理
+```
 2. send() 方法可将请求送往服务器。
 3. onreadystatechange 存有处理服务器响应的函数，每当readyState改变时，onreadystatechange函数就会被执行。
 4. readyState 存有服务器响应的状态信息。
