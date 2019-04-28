@@ -129,9 +129,14 @@
 4. ToPrimitive
     * 当对象类型需要被转为原始类型时，它会先查找对象的valueOf方法，如果valueOf方法返回原始类型的值，则ToPrimitive的结果就是这个值。
     * 如果valueOf不存在或者valueOf方法返回的不是原始类型的值，就会尝试调用对象的toString方法，也就是会遵循对象的ToString规则，饭后使用toString的返回值作为ToPrimitive的结果。
-    * 如果valueOf和toString都没有返回原始类型的值，则会抛出异常。
+
+    如果valueOf和toString都没有返回原始类型的值，则会抛出异常。
+
     ```
     Number([])
+    ```
+    * Number([])，空数组会先调用valueOf，但是返回的是数组本身，不是原始类型，所以会继续调用toString，得到空字符串，相当于Number('')，所以转换后的结果为"0"
+    ```
     const obj1 = {
         valueOf() {
             return 100
@@ -141,18 +146,17 @@
         }
     }
     ```
-    * Number([])，空数组会先调用valueOf，但是返回的是数组本身，不是原始类型，所以会继续调用toString，得到空字符串，相当于Number('')，所以转换后的结果为"0"
     * Number(obj1)，obj1的valueOf返回原始对象类型100，所以ToPrimitive的结果为100。
 
 5. 宽松相等（==）比较时的隐式转换规则
-    5.1 布尔类型和其他类型的相等比较
+    布尔类型和其他类型的相等比较
     * 只要布尔类型参与比较，该布尔类型的值首先会被转为数字类型。
     ```
         false == 0 // true
         true == 1 // true
         true == 2 // false
     ```
-    5.2 数字类型和字符串类型的相等比较
+    数字类型和字符串类型的相等比较
     * 当数字类型和字符串类型做相等比较时，字符串类型会被转为数字类型。
     * 根据字符串的ToNumber规则，如果是纯数字形式的字符串，则转为对应的数字，空字符转为0，否则一律按转换失败处理，转为NaN。
     ```
@@ -164,24 +168,24 @@
         false == '0' // true
         false == '' // true
     ```
-    5.3对象类型和原始类型的相等比较
+    对象类型和原始类型的相等比较
     * 当对象类型和原始类型做相等比较时，对象类型会依照ToPrimitive规则转换为原始类型。
 
 ## 类型判断
-1. typeof
-    运算符后可跟着一个操作数，用于判断该操作数的数据类型；typeof适用于boolean,undefined,string,number,symbol。
-    判断一个数据是不是对象，却不能判断它是对象的哪个“子类型”，比如说不能判断是否为数组，是否为日期等。
-    typeof null  // object
-    typeof function(){} // function
+typeof
+运算符后可跟着一个操作数，用于判断该操作数的数据类型；typeof适用于boolean,undefined,string,number,symbol。
+判断一个数据是不是对象，却不能判断它是对象的哪个“子类型”，比如说不能判断是否为数组，是否为日期等。
+typeof null  // object
+typeof function(){} // function
 
-2. instanceof
-    判断一个对象的“子类型”。判断一个对象在其原型链中是否存在一个构造函数的prototype属性。
+instanceof
+判断一个对象的“子类型”。判断一个对象在其原型链中是否存在一个构造函数的prototype属性。
 
-3. constructor
-    constructor的值是对构造函数本身的引用，而不是函数名的字符串。constructor属性返回的对象的构造函数，基本类型指向对象的内置对象的构造函数。null和undefined没有构造函数。
+constructor
+constructor的值是对构造函数本身的引用，而不是函数名的字符串。constructor属性返回的对象的构造函数，基本类型指向对象的内置对象的构造函数。null和undefined没有构造函数。
 
-4. Object.prototype.toString.call()
-    Object.prototype.toString.call(data)返回一个表示data的原型对象的字符串（如果data不是对象，会先转化为对象，null和undefined除外）
+Object.prototype.toString.call()
+Object.prototype.toString.call(data)返回一个表示data的原型对象的字符串（如果data不是对象，会先转化为对象，null和undefined除外）
 
 ##ajax / jsonp原理
 
@@ -197,7 +201,7 @@ get请求
 ```
     //创建异步对象
     var ajax = new XMLHttpRequest();
-    // 设置请求的url参数，参数一是请求的类型，参数二是请求的url，可以带参数，动态的传递参数name到服务端
+    // 设置请求的url参数，参数一是请求的类型，参数二是请求的url，可以带参数，动态的传递参数name到服务端， 参数三是规定对请求进行异步（true）或（false）处理
     ajax.open('get', 'url?name='+name);
     // 发送请求
     ajax.send()
@@ -212,6 +216,7 @@ post请求
 ```
     // 创建异步对象
     var ajax = new XMLHttpRequest();
+    // 设置请求的url参数，参数一是请求的类型，参数二是请求的url，可以带参数，动态的传递参数name到服务端
     // post请求一定要添加请求头才行不然会报错
     ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     ajax.open('get', 'url?name='+name);
