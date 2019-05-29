@@ -81,17 +81,7 @@ http {
         #access_log  logs/host.access.log  main;
 
         location / {
-            #proxy_pass http://tf.dudao360.com:8081;
             proxy_pass https://ceshi.dudao360.com;
-            #proxy_pass http://114.215.28.157:8081;
-            #proxy_pass https://gz.dudao360.com;
-            #proxy_pass http://tf.ceshi.dudao360.com:8081;
-            #proxy_pass https://fenzhi.dudao360.com;
-            #proxy_pass https://htdd.htsec.com;
-            #proxy_pass https://test.dudao360.com;
-            #proxy_pass https://tpy.dudao360.com;
-            #proxy_pass https://gj.dudao360.com;
-            #proxy_pass https://xsb.ctsec.com;
         }
 
         location /login.html {
